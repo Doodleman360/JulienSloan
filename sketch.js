@@ -1,7 +1,7 @@
 // Constants
 Y_AXIS = 1;
 X_AXIS = 2;
-let b1, b2, c1, c2;
+let c1, c2;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -22,13 +22,13 @@ function draw() {
     //setGradient(width/2, 0, width/2, height, b2, b1, X_AXIS);
     setGradient(0, 0, width, height, c2, c1, Y_AXIS);
     fill(20,20,100);
-    makeShape(200, 0, 20, 0);
+    makeShape(200, height - 200, 10, 0);
+    fill(0,0,100);
+    makeShape(200, height - 160, 15, 200);
     fill(0,0,50);
-    makeShape(200, 20, 15, 200);
-    fill(0,0,20);
-    makeShape(200, 40, 15, 200);
+    makeShape(200, height - 120, 15, 400);
     fill(0,0,0);
-    makeShape(200, 60, 15, 200);
+    makeShape(200, height - 80, 15, 800);
 }
 
 function mousePressed() {
@@ -39,16 +39,16 @@ function makeShape(max,yOffset, scale, offset) {
 
     noStroke();
     beginShape();
-    vertex(0, height/2);
+    //vertex(0, height/2);
     //scale = mouseY;
 
     //println(max);
     for (let i = 1; i <= max; i++) {
-        vertex(map(i, 2, max, 0, width), height/2+yOffset+(noise((i+offset)/scale)*100));
+        vertex(map(i, 2, max, 0, width), yOffset+(noise((i+offset)/scale)*100));
     }
 
 
-    vertex(width, height/2);
+    //vertex(width, height/2);
     vertex(width, height);
     vertex(0, height);
     endShape(CLOSE);
