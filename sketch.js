@@ -5,11 +5,8 @@ let c1, c2;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    //fullScreen();
     c1 = color(204, 102, 0);
     c2 = color(0, 102, 153);
-
-    //noLoop();
 }
 
 function windowResized() {
@@ -18,8 +15,6 @@ function windowResized() {
 
 function draw() {
     // Background
-    //setGradient(0, 0, width/2, height, b1, b2, X_AXIS);
-    //setGradient(width/2, 0, width/2, height, b2, b1, X_AXIS);
     setGradient(0, 0, width, height, c2, c1, Y_AXIS);
     fill(20,20,100);
     makeShape(200, height - 200, 10, 0);
@@ -39,16 +34,9 @@ function makeShape(max,yOffset, scale, offset) {
 
     noStroke();
     beginShape();
-    //vertex(0, height/2);
-    //scale = mouseY;
-
-    //println(max);
     for (let i = 1; i <= max; i++) {
         vertex(map(i, 2, max, 0, width), yOffset+(noise((i+offset)/scale)*100));
     }
-
-
-    //vertex(width, height/2);
     vertex(width, height);
     vertex(0, height);
     endShape(CLOSE);
