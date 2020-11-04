@@ -21,10 +21,284 @@
         width: 8em
     }
     </style>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: monospace;
+            font-size: large;
+        }
+
+        body, html {
+            height: 100%;
+            background-attachment: fixed;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #profile {
+            /*transition: display 5s;*/
+            /*display: unset;*/
+            border-radius: 10px;
+            text-align: left;
+            vertical-align: middle;
+            align-self: center;
+            background: rgba(0, 0, 0, .85);
+            color: #999999;
+
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10%;
+            padding: 15px;
+
+            width: 60%;
+            min-width: 300px;
+            max-width: 800px;
+            position: relative;
+
+            /*        Down?  Right? Fuz? Size?*/
+            box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.2);
+            /*box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);*/
+            /*white-space: pre-wrap; Jankey but maybe later*/
+        }
+
+        .ps1 {
+            color: #cccccc;
+        }
+
+        red {
+            color: #aa4444;
+        }
+
+        blue {
+            color: #6666cc;
+        }
+
+        .comment {
+            color: #666666;
+        }
+
+        a {
+            color: #999999;
+            text-decoration: none;
+        }
+
+        a u {
+            color: #999999;
+        }
+
+        a:hover u {
+            color: #dddddd;
+        }
+
+        dl {
+            margin: 0
+        }
+
+        .tooltip_text {
+            visibility: hidden;
+            background-color: #555555;
+            color: #cccccc;
+            text-align: center;
+            border-radius: 6px;
+            padding: 2px 3px 2px 3px;
+
+            z-index: 1;
+            top: -5px;
+            margin-left: 10px;
+
+            width: 120px;
+            position: absolute;
+
+
+            opacity: 1;
+        }
+
+        .tooltip_text::after {
+            content: "";
+            position: absolute;
+            top: 20%;
+            left: 0;
+            margin-left: -10px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent #555555 transparent transparent;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+
+        .tooltip:hover .tooltip_text {
+            visibility: visible;
+            opacity: 0;
+            transition: opacity 5s;
+        }
+
+        @media screen and (max-width: 768px) {
+            .tooltip_text {
+                display: none
+            }
+
+            .terminal {
+                width: 90%;
+            }
+        }
+
+        #bg_design_holder {
+            padding: 0;
+            border: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: monospace;
+            font-size: large;
+        }
+
+        body, html {
+            height: 100%;
+            background-attachment: fixed;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #profile {
+            /*transition: display 5s;*/
+            /*display: unset;*/
+            border-radius: 10px;
+            text-align: left;
+            vertical-align: middle;
+            align-self: center;
+            background: rgba(0, 0, 0, .85);
+            color: #999999;
+
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10%;
+            padding: 15px;
+
+            width: 60%;
+            min-width: 300px;
+            max-width: 800px;
+            position: relative;
+
+            /*        Down?  Right? Fuz? Size?*/
+            box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.2);
+            /*box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);*/
+            /*white-space: pre-wrap; Jankey but maybe later*/
+        }
+
+        .ps1 {
+            color: #cccccc;
+        }
+
+        red {
+            color: #aa4444;
+        }
+
+        blue {
+            color: #6666cc;
+        }
+
+        .comment {
+            color: #666666;
+        }
+
+        a {
+            color: #999999;
+            text-decoration: none;
+        }
+
+        a u {
+            color: #999999;
+        }
+
+        a:hover u {
+            color: #dddddd;
+        }
+
+        dl {
+            margin: 0
+        }
+
+        .tooltip_text {
+            visibility: hidden;
+            background-color: #555555;
+            color: #cccccc;
+            text-align: center;
+            border-radius: 6px;
+            padding: 2px 3px 2px 3px;
+
+            z-index: 1;
+            top: -5px;
+            margin-left: 10px;
+
+            width: 120px;
+            position: absolute;
+
+
+            opacity: 1;
+        }
+
+        .tooltip_text::after {
+            content: "";
+            position: absolute;
+            top: 20%;
+            left: 0;
+            margin-left: -10px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent #555555 transparent transparent;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+
+        .tooltip:hover .tooltip_text {
+            visibility: visible;
+            opacity: 0;
+            transition: opacity 5s;
+        }
+
+        @media screen and (max-width: 768px) {
+            .tooltip_text {
+                display: none
+            }
+
+            .terminal {
+                width: 90%;
+            }
+        }
+
+        #bg_design_holder {
+            padding: 0;
+            border: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
     <!--<script src="sketch.js"></script>-->
     <script>
-        let canvas, ctx, animations = [], animationInterval = null, activeAnimation = 1;
+        let canvas, ctx, animations = [], animationInterval = null, activeAnimation = 2;
 
         function setAnimation(n) {
             const buttons = document.getElementsByClassName("animation");
@@ -528,11 +802,11 @@
 
     </script>
 </head>
-<body>
+<body id="bg" onload="onBody()">
+<div id="bg_design_holder" onclick="showUI()">
+    <canvas id="bg_design" width="1348" height="743"></canvas>
+</div>
 <div id="content">
-    <p class="blocktext">
-        Hello world!
-    </p>
 </div>
 </body>
 </html>
