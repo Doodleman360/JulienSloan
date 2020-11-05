@@ -297,6 +297,7 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
     <!--<script src="sketch.js"></script>-->
+    <script type="text/javascript" onload="loadedJQuery();" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" async=""></script>
     <script>
         let canvas, ctx, animations = [], animationInterval = null, activeAnimation = 2;
 
@@ -804,7 +805,7 @@
 </head>
 <body id="bg" onload="onBody()">
 <div id="bg_design_holder" onclick="showUI()">
-    <canvas id="bg_design" width="1348" height="743"></canvas>
+    <canvas id="bg_design"></canvas>
 </div>
 <div id="content">
 </div>
